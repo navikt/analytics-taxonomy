@@ -1,0 +1,19 @@
+{
+  "name": "analytics-taxonomy",
+  "version": "1.0.0",
+  "description": "Analytics taxonomy for NAV applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navikt/analytics-taxonomy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navikt/analytics-taxonomy/issues"
+  },
+  "homepage": "https://github.com/navikt/analytics-taxonomy#readme"
+}
