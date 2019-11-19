@@ -1,0 +1,5 @@
+{
+  "name": "page_viewed",
+  "standard": true,
+  "properties": ["url"]
+}
