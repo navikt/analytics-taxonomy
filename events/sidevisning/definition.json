@@ -1,5 +1,5 @@
 {
-  "name": "page_viewed",
+  "name": "sidevisning",
   "standard": true,
   "properties": ["url"]
 }
