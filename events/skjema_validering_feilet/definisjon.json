@@ -1,0 +1,5 @@
+{
+    "name": "skjema validering feilet",
+    "standard": true,
+    "properties": ["url"]
+  }  
