@@ -1,4 +1,24 @@
-# nav-analytics
+# Taksonomi for Webanalyse
+
+## Naturlig språk
+
+Vi ønsker å navngi våre events slik man snakker og skriver i dagligdags språk.
+
+Det er fordi dette er enklere å forstå og derfor fortolke.
+
+Dette gir oss også konsistent navgivning på events.
+
+**For eksempel**
+
+skjema åpnet av bruker -> skjema åpnet
+side åpnet av bruker -> side åpnet
+lenke klikket av bruker -> lenke klikk
+
+## Syntaks
+
+Bruk lower case og mellomrom.
+
+# nav-analytics in English
 Analytics taxonomy for NAV applications
 
 NAV should create great services, therefore we need to know how they are used. To ensure we get high-quality data and consistent naming conventions we use a shared taxonomy for analytics. Following our Mesh architecture all events shall also be passed onwards to Kafka.
