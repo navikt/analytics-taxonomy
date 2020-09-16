@@ -4,6 +4,8 @@
 
 Vi ønsker å navngi våre events slik man snakker og skriver i dagligdags språk.
 
+Navn er basert på den antatte intensjonen til brukeren.
+
 Det er fordi dette er enklere å forstå og derfor fortolke.
 
 Dette gir oss også konsistent navgivning på events.
