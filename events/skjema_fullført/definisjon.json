@@ -1,5 +1,8 @@
 {
     "name": "skjema fullført",
     "standard": true,
-    "properties": ["url"]
+    "properties": {
+      "skjemanavn": "",
+      "skjemaId": ""
+    }
   }  

@@ -1,5 +1,8 @@
 {
-    "name": "skjema innsending feilet",
+    "name": "skjemainnsending feilet",
     "standard": true,
-    "properties": ["url"]
+    "properties": {
+      "skjemanavn": "",
+      "skjemaId": ""
+    }
   }  

@@ -1,5 +1,10 @@
 {
-    "name": "skjema spørsmål besvart",
+    "name": "skjemaspørsmål besvart",
     "standard": true,
-    "properties": ["url"]
+    "properties": {
+      "skjemanavn": "",
+      "skjemaId": "",
+      "spørsmål": "",
+      "svar": ""
+    }
   }  
