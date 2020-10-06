@@ -1,10 +1,12 @@
 {
-  "name": "analytics-taxonomy",
-  "version": "1.0.0",
+  "name": "@navikt/analytics-taxonomy",
+  "version": "0.0.1",
   "description": "Analytics taxonomy for NAV applications",
-  "main": "index.js",
+  "main": "dist/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "generate": "node src/cli/generate.js",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/navikt/analytics-taxonomy/issues"
   },
-  "homepage": "https://github.com/navikt/analytics-taxonomy#readme"
+  "homepage": "https://github.com/navikt/analytics-taxonomy#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/amplitude-js": "^5.11.0",
+    "@types/typescript": "latest",
+    "typescript": "^4.0.3",
+    "camelcase": "^6.0.0",
+    "glob": "^7.1.6",
+    "jest": "^26.4.2"
+  }
 }
