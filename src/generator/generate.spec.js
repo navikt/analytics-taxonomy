@@ -1,18 +1,12 @@
 const generate = require('./generate');
 const getTempDir = require('../utils/get-temp-dir');
-const glob = require('glob');
-const fs = require('fs');
-const path = require('path');
-const tempDirForTest = getTempDir(['analytics-taxonomy', 'test-dist']);
-beforeEach(() => {
-  fs.rmdirSync(tempDirForTest, {recursive: true});
-});
+const tempDirForTest = getTempDir(["analytics-taxonomy-test", "dist"]);
 
-afterEach(() => {
-  fs.rmdirSync(tempDirForTest, {recursive: true});
-});
 test('should generate files from events', async () => {
-  generate(tempDirForTest);
-  const files = glob.sync(path.join(tempDirForTest, '**'));
-  expect(files.length).toBeGreaterThan(4);
+  const fileMap = generate(tempDirForTest);
+  fileMap.forEach((content, filepath) => {
+    expect(typeof filepath).toBe("string");
+    expect(typeof content).toBe("string");
+  });
+  expect(fileMap.size).toBeGreaterThan(3);
 });
