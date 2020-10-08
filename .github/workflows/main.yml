@@ -13,7 +13,6 @@ jobs:
   build:
     name: Build and run jest
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
@@ -27,8 +26,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: run tests
-        run: |
-          npm ci
-          npm run test
-          npm run build
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+      - name: Build assets
+        run: npm run build
