@@ -1,7 +1,7 @@
 const generate = require('./generate-function');
 const transpileModule = require("typescript").transpileModule;
 
-test('should find event files', async () => {
+test('should generate function', async () => {
   const fileContent = generate('Skjema åpnet', [
     'skjemaId',
     'skjemaNavn',
@@ -9,6 +9,7 @@ test('should find event files', async () => {
     'context',
     'component',
   ]);
+  console.log(fileContent);
   const transpiled = transpileModule(fileContent,{});
   expect(transpiled.outputText.length).toBeGreaterThan(25);
 });

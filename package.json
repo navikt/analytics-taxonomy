@@ -2,12 +2,16 @@
   "name": "@navikt/analytics-taxonomy",
   "version": "0.0.1",
   "description": "Analytics taxonomy for NAV applications",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "generate": "node src/cli/generate.js",
-    "build": "tsc"
+    "build": "node src/cli/build.js && tsc",
+    "publish-dry": "npm publish --dry-run"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikt/analytics-taxonomy.git"

@@ -1,6 +1,7 @@
 const ts = require('typescript');
 const factory = require('typescript').factory;
-const camelcase = require('camelcase');
+const printNode = require('./print-node');
+const rewriteName = require('../utils/rewrite-name');
 
 function createProperty(propName) {
   return factory.createPropertySignature(
@@ -26,13 +27,14 @@ function createInterface(interfaceName, interfaceProps) {
   );
 }
 
-function createFunction(eventName, interfaceName) {
-  const functionName = camelcase(['log', eventName].join(' '));
+function createFunction(eventName) {
+  const names = rewriteName(eventName);
+
   return factory.createFunctionDeclaration(
       undefined,
       [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
       undefined,
-      factory.createIdentifier(functionName),
+      factory.createIdentifier(names.functionName),
       undefined,
       [
         factory.createParameterDeclaration(
@@ -42,7 +44,7 @@ function createFunction(eventName, interfaceName) {
             factory.createIdentifier('props'),
             undefined,
             factory.createTypeReferenceNode(
-                factory.createIdentifier(interfaceName),
+                factory.createIdentifier(names.interfaceName),
                 undefined,
             ),
             undefined,
@@ -64,29 +66,13 @@ function createFunction(eventName, interfaceName) {
 }
 
 module.exports = (eventName, eventProps) => {
-  const interfaceName = camelcase(['log', eventName, 'Props'].join(' '));
-  const nodes = [
-    createInterface(interfaceName, eventProps),
-    createFunction(eventName, interfaceName),
-  ];
-  const resultFile = ts.createSourceFile(
-      'someFileName.ts',
-      '', ts.ScriptTarget.Latest,
-      /*setParentNodes*/ false,
-      ts.ScriptKind.TS,
-  );
-  const printer = ts.createPrinter({
-    newLine: ts.NewLineKind.LineFeed,
-  });
+  const names = rewriteName(eventName);
   return [
     'import {logEvent} from \'../core\'',
-    printer.printNode(
-        ts.EmitHint.Unspecified,
-        nodes[0],
-        resultFile,
-    ), printer.printNode(
-        ts.EmitHint.Unspecified,
-        nodes[1],
-        resultFile,
-    )].join('\n\n');
+    '',
+    printNode(createInterface(names.interfaceName, eventProps)),
+    '',
+    '/** @internal */',
+    printNode(createFunction(eventName)),
+  ].join('\n');
 };

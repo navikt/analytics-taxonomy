@@ -1,6 +1,7 @@
 const os = require("os");
-const path = require("path");
 const sessionTmpDir = os.tmpdir();
+const path = require("path");
+
 module.exports = (folders) => {
   const foldersClone = [...folders];
   foldersClone.unshift(sessionTmpDir);

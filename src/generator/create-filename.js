@@ -1,7 +1,6 @@
 const path = require('path');
-
+const rewrite = require("../utils/rewrite-name");
 module.exports = (eventName, dirName) => {
-  const fname = eventName.toLowerCase().replace(" ","-");
-  const fileName = fname + '.ts';
+  const fileName = rewrite(eventName).fileName + '.ts';
   return path.join(dirName, fileName);
 };
