@@ -1,6 +1,6 @@
 const findEventFiles = require("./find-event-files")
-const constants = require("../filenames.json");
+const filenames = require("../source-files");
 test('should find event files', async () => {
-  const files = findEventFiles(constants.README_MD);
+  const files = findEventFiles(filenames.README_MD);
   expect(files.length).toBeGreaterThan(1);
 })

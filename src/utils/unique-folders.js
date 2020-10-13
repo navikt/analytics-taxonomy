@@ -1,5 +1,7 @@
 const path = require('path');
 /**
+ * Takes a bounch of filepaths and return the unique folders that is
+ * needed to create the directory strukture.
  *
  * @returns {*}
  * @param string[]
