@@ -9,7 +9,6 @@ test('should generate function', async () => {
     'context',
     'component',
   ]);
-  console.log(fileContent);
   const transpiled = transpileModule(fileContent,{});
   expect(transpiled.outputText.length).toBeGreaterThan(25);
 });

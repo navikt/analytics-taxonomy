@@ -1,7 +1,7 @@
 const ts = require('typescript');
 const factory = require('typescript').factory;
 const printNode = require('./print-node');
-const rewriteName = require('../utils/rewrite-name');
+const rewriteName = require('../definitions/rewrite-name');
 
 function createProperty(propName) {
   return factory.createPropertySignature(
@@ -68,7 +68,7 @@ function createFunction(eventName) {
 module.exports = (eventName, eventProps) => {
   const names = rewriteName(eventName);
   return [
-    'import {logEvent} from \'../core\'',
+    'import logEvent from \'../core\'',
     '',
     printNode(createInterface(names.interfaceName, eventProps)),
     '',

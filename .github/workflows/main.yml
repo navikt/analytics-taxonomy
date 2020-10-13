@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Build and run jest
+    name: Test and build taxonomy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

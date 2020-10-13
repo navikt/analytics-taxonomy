@@ -1,4 +1,4 @@
-const rewriteName = require('./rewrite-name');
+const rewriteName = require('../definitions/rewrite-name');
 /**
  *
  * @param definitions

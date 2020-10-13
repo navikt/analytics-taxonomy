@@ -1,20 +1,22 @@
 import {AmplitudeClient} from "amplitude-js";
 
 let amplitude;
-
+let logEvent = (eventName: string, eventProps: {}) => {
+    console.warn('AmplitudeClient need to be initialized with taxonomy!');
+};
 /** @internal */
 export function initTaxonomy(client: AmplitudeClient) {
     amplitude = client;
+    logEvent = (eventType: string, eventProperties: {}) => {
+        return amplitude.getInstance().logEvent(eventType, eventProperties);
+    }
 }
 /** @internal */
 export function initTaxonomyWithGroup(client: AmplitudeClient, groupName, groupId) {
     amplitude = client;
-}
-/** @internal */
-export function logEvent(eventName: string, eventProps: {}) {
-    if (!amplitude) {
-        console.warn('AmplitudeClient need to be initialized with taxonomy!');
-    } else {
-        amplitude.getInstance().logEvent(eventName, eventProps);
+    logEvent = (eventType: string, eventProperties: {}) => {
+        return amplitude.getInstance().logEvent(eventType, eventProperties);
     }
 }
+/** @internal */
+export default logEvent;
