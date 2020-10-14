@@ -5,7 +5,6 @@ on:
     branches:
       - "master"
       - "main"
-      - "versjonering-i-pipeline"
 
 jobs:
   npm-publish:
@@ -31,7 +30,7 @@ jobs:
       - name: Should push result back to git
         run: git push && git push --tags
       - uses: JS-DevTools/npm-publish@v1
-        #if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           dry-run: false
