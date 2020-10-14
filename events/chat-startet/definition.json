@@ -1,0 +1,9 @@
+{
+  "name": "chat startet",
+  "standard": true,
+  "properties": [
+    "komponent"
+  ],
+  "kommentar": "Brukeren starter en chat dialog med oss"
+}
+
