@@ -1,7 +1,7 @@
 const ts = require('typescript');
 const factory = require('typescript').factory;
 const printNode = require('./print-node');
-
+const coreFuncNames = require('../core-functions.json');
 function createImportDeclaration(path, funcNames) {
   const importSpecifiers = funcNames.map(funcName => factory.createImportSpecifier(
       undefined,
@@ -40,14 +40,7 @@ function createExportDeclaration(funcNames) {
  * @returns {string}
  */
 module.exports = eventMap => {
-  const coreFuncNames = [
-    'initTaxonomy',
-    'initTaxonomyWithGroup',
-  ];
-
-  /**
-   * @type array
-   */
+  /** @type array */
   const lines = [
     createImportDeclaration(
         './core',

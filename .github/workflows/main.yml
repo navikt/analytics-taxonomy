@@ -1,4 +1,4 @@
-name: Main
+name: Test and build taxonomy
 
 on:
   push:
@@ -15,20 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Cache NPM dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.OS }}-npm-cache-
-      - name: Use Node.js ${{matrix.node-version}}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Setting up node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14'
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm run test
       - name: Build assets
         run: npm run build
+

@@ -21,9 +21,15 @@ function getTmpFile(filename, folder) {
   return path.join(dir, filename);
 }
 
+/**
+ * Calculate file age in seconds
+ *
+ * @param filename
+ * @return {number}
+ */
 function fileAge(filename) {
   const stats = fs.statSync(filename);
-  return (new Date().getTime() - stats.mtime.getTime()) / 1000;
+  return Math.round((new Date().getTime() - stats.mtime.getTime()) / 1000);
 }
 
 async function fetchCached(url, ttlSeconds, folder) {
