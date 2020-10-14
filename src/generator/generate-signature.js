@@ -1,6 +1,7 @@
 const Signature = require('../versioning/signature');
 const rules = require('../versioning/rules');
 const rewriteName = require('../definitions/rewrite-name');
+const coreFuncNames = require('../core-functions.json');
 /**
  * Tar inn definisjoner og lager en signatur for pakken. Ganske enkelt. Hvis funksjonsnavnet
  * endrer seg så brekker pakken og vi trenger MAJOR. Hvis det er endringer i props så trenger
@@ -12,6 +13,9 @@ const rewriteName = require('../definitions/rewrite-name');
  */
 module.exports = definitions => {
   const signature = new Signature();
+  coreFuncNames.forEach(functionName => {
+    signature.add(functionName, rules.IF_CHANGED_MINOR);
+  });
   definitions.forEach(def => {
     const names = rewriteName(def.eventName);
     signature.add(names.functionName, rules.IF_CHANGED_MINOR);

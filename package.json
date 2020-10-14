@@ -1,17 +1,21 @@
 {
   "name": "@navikt/analytics-taxonomy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Analytics taxonomy for NAV applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "node src/cli/build.js && tsc",
-    "publish-dry": "npm publish --dry-run"
+    "publish-dry": "npm publish --dry-run",
+    "bump-version": "node src/cli/bump-version.js"
   },
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikt/analytics-taxonomy.git"
@@ -22,7 +26,9 @@
     "url": "https://github.com/navikt/analytics-taxonomy/issues"
   },
   "homepage": "https://github.com/navikt/analytics-taxonomy#readme",
-  "dependencies": {},
+  "dependencies": {
+    "semver": "^7.3.2"
+  },
   "devDependencies": {
     "@types/amplitude-js": "^6.0.0",
     "@types/npm": "latest",
