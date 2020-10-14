@@ -8,7 +8,8 @@
     "test": "jest",
     "build": "node src/cli/build.js && tsc",
     "publish-dry": "npm publish --dry-run",
-    "bump-version": "node src/cli/bump-version.js"
+    "bump-version": "node src/cli/bump-version.js",
+    "download-dist": "node src/cli/download-dist.js"
   },
   "files": [
     "dist"
