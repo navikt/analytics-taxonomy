@@ -9,7 +9,7 @@
     "test": "jest",
     "build-and-clean": "npm run build && npm run clean",
     "build": "node src/cli/build.js && npm run tsc",
-    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && cp build/signature.txt dist",
     "clean": "node src/cli/clean.js",
     "publish-dry": "npm publish --dry-run",
     "bump-version": "node src/cli/bump-version.js",
