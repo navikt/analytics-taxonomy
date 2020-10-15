@@ -54,7 +54,7 @@ function createFunction(eventName) {
       factory.createBlock(
           [
             factory.createReturnStatement(
-                factory.createCallExpression(factory.createIdentifier('logEvent'), undefined, [
+                factory.createCallExpression(factory.createIdentifier('core.logEvent'), undefined, [
                   factory.createStringLiteral(eventName),
                   factory.createIdentifier('props'),
                 ]),
@@ -68,7 +68,7 @@ function createFunction(eventName) {
 module.exports = (eventName, eventProps) => {
   const names = rewriteName(eventName);
   return [
-    'import logEvent from \'../core\'',
+    'import core from \'../core\'',
     '',
     printNode(createInterface(names.interfaceName, eventProps)),
     '',

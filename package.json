@@ -3,20 +3,26 @@
   "version": "0.2.0",
   "description": "Analytics taxonomy for NAV applications",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/cjs/index.d.ts",
+  "module": "dist/esm/index.ts",
   "scripts": {
     "test": "jest",
-    "build": "node src/cli/build.js && tsc",
+    "build-and-clean": "npm run build && npm run clean",
+    "build": "node src/cli/build.js && npm run tsc",
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "clean": "node src/cli/clean.js",
     "publish-dry": "npm publish --dry-run",
     "bump-version": "node src/cli/bump-version.js",
     "download-dist": "node src/cli/download-dist.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "signature.txt"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navikt/analytics-taxonomy.git"
@@ -27,11 +33,9 @@
     "url": "https://github.com/navikt/analytics-taxonomy/issues"
   },
   "homepage": "https://github.com/navikt/analytics-taxonomy#readme",
-  "dependencies": {
-    "semver": "^7.3.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/amplitude-js": "^6.0.0",
+    "@types/amplitude-js": "6.0.0",
     "@types/npm": "latest",
     "@types/typescript": "latest",
     "camelcase": "^6.1.0",
@@ -39,6 +43,7 @@
     "global-npm": "^0.4.1",
     "jest": "^26.5.3",
     "tar": "^6.0.5",
+    "semver": "^7.3.2",
     "typescript": "latest"
   }
 }
