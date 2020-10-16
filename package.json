@@ -2,9 +2,9 @@
   "name": "@navikt/analytics-taxonomy",
   "version": "0.2.0",
   "description": "Analytics taxonomy for NAV applications",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
   "typings": "dist/cjs/index.d.ts",
-  "module": "dist/esm/index.ts",
+  "module": "dist/esm/index.js",
   "scripts": {
     "test": "jest",
     "build-and-clean": "npm run build && npm run clean",
