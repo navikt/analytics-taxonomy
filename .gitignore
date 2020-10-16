@@ -15,9 +15,9 @@
 .nyc_output
 .yarn-integrity
 bower_components
-build/Release
+build/
 coverage
-dist
+dist/
 jspm_packages/
 lib-cov
 logs
@@ -28,4 +28,4 @@ tmp/
 typings/
 yarn-debug.log*
 yarn-error.log*
-
+signature.txt

@@ -10,7 +10,14 @@ const rootDir = require('../utils/root-dir');
  * @return {boolean}
  */
 module.exports = filepath => {
-  if (filepath.startsWith(rootDir())) {
+  const staticPaths = [
+    rootDir(),
+    rootDir("src"),
+    rootDir("src-lib"),
+    rootDir("events"),
+    rootDir(".github"),
+  ]
+  if (filepath.startsWith(rootDir()) && !staticPaths.includes(filepath)) {
     return true;
   } else if (filepath.startsWith(sessionTmpDir)) {
     return true;
