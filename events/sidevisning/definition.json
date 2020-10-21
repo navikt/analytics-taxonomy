@@ -2,7 +2,9 @@
   "name": "sidevisning",
   "standard": true,
   "properties": [
-    "platform",
+    "url",
+    "hostname",
+    "pagePath",
     "status",
     "app",
     "team"
