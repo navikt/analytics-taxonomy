@@ -1,10 +1,10 @@
 {
   "name": "sidevisning",
   "standard": true,
-  "properties": {
-    "platform": window.location.href,
-    "status": "http status",
-    "app": "name of the app",
-    "team": "name of the team who own the app"
-  }
+  "properties": [
+    "platform",
+    "status",
+    "app",
+    "team"
+  ]
 }
