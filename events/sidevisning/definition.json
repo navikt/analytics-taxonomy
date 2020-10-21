@@ -1,5 +1,12 @@
 {
   "name": "sidevisning",
   "standard": true,
-  "properties": ["url"]
+  "properties": [
+    "url",
+    "hostname",
+    "pagePath",
+    "status",
+    "app",
+    "team"
+  ]
 }
