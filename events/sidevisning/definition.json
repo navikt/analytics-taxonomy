@@ -1,5 +1,7 @@
 {
   "name": "sidevisning",
   "standard": true,
-  "properties": ["url"]
+  "properties": [
+    "url"
+  ]
 }

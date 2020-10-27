@@ -1,8 +1,8 @@
 {
     "name": "skjemavalidering feilet",
     "standard": true,
-    "properties": {
-      "skjemanavn": "",
-      "skjemaId": ""
-    }
+    "properties": [
+      "skjemanavn",
+      "skjemaId"
+    ]
   }  

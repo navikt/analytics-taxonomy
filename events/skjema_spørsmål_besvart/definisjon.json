@@ -1,10 +1,10 @@
 {
     "name": "skjemaspørsmål besvart",
     "standard": true,
-    "properties": {
-      "skjemanavn": "",
-      "skjemaId": "",
-      "spørsmål": "",
-      "svar": ""
-    }
+    "properties": [
+      "skjemanavn",
+      "skjemaId",
+      "spørsmål",
+      "svar"
+    ]
   }  
