@@ -1,39 +1,64 @@
-# Analytics Taxonomy for NAV applikasjoner
+# Taksonomi for Webanalyse
 
-NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For å forsikre at vi får gode data med høye kvalitet og konsistente navnkonvensjonser så skal vi bruke en felles taksonomi for analytics. Ved å følge vår Mesh-arkitektur så skal alle events videresendes til Kafka.
+## Naturlig språk
 
-Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi. Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://nav.no.
+Vi ønsker å navngi våre events slik man snakker og skriver i dagligdags språk.
 
-Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate. 
+Navn er basert på den antatte intensjonen til brukeren.
 
-Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens]('https://github.com/navikt/nav-analytics/blob/master/LICENSE').
+Det er fordi dette er enklere å forstå og derfor fortolke.
 
-### Kom igang
+Dette gir oss også konsistent navgivning på events.
 
-Før du sender oss et forslag til taksonomien så bør du vurdere forslaget og verdien det tilfører. Hvilket problem løser det? Lar det team forstå bruksmønster, måle om sluttbrukere er selvbetjent eller noe annet?
+**For eksempel**
 
-Ved å svare på dette spørsmålet så blir det enklere å planlegge hva du bør måle og hvordan det bør måles. Taksonomien tar kun for seg digital analyse men dere kan også ha behov for data fra spørreundersøkelser og brukertesting. 
+skjema åpnet av bruker -> skjema åpnet
+side åpnet av bruker -> side åpnet
+lenke klikket av bruker -> lenke klikk
 
-**Språk og casing**
+## Syntaks
 
-Bruk naturlig språk for å beskrive en event. Det burde kunne brukes i en setning og beskrive en handling som brukeren gjorde.
+Bruk lower case og mellomrom.
 
-For eksempel "**Skjemaet ble åpnet** av bruker".
+# nav-analytics in English
+Analytics taxonomy for NAV applications
 
-Andre eksempler 
-* `skjema åpnet`
-* `skjema startet`
-* `skjemaspørsmål besvart`
-* `skjemasteg fullført`
-* `skjemavalidering feilet`
-* `skjemainnsending feilet`
-* `skjema fullført`
+NAV should create great services, therefore we need to know how they are used. To ensure we get high-quality data and consistent naming conventions we use a shared taxonomy for analytics. Following our Mesh architecture all events shall also be passed onwards to Kafka.
 
+From this taxonomy we generate JSON schema. The schema is used to validate the data we collect is in accordance with our taxonomy, which shall include requirements from the Norwegian laws including Personopplysningsloven and our privacy policy at https://nav.no.
 
-Bruk camel case i attributter, for eksempel: 
+The naming convention is intended to ensure consistency and allowing teams to re-use their code across services and comparing services with success metrics and user experience. 
 
-`pagePath` for stien i en URL
+Developers at NAV are welcome to read and contribute to the taxonomy by making a suggestion as a Pull Request. Everyone is free to use this repository in accordance with our [license]('https://github.com/navikt/nav-analytics/blob/master/LICENSE').
 
-**Påkrevd og valgfrihet**
+### Getting started
 
-Noen datapunkter er påkrevd men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
+Before contributing your proposals to the taxonomy, consider what is the value proposition of your product?
+
+This will help you answer what to measure and how to measure it. The taxonomy in this repository only includes digital analytics, but you can also benefit from using other data sources such as surveys and usability testing.
+
+**Casing**
+
+Use snake_case to describe a data point, be it an event, pageview or anything else. For example: `page_loaded`, `logged_in`, `security_level: 3`, 
+
+**Naming convention** 
+
+The purpose of our naming convention is to ensure consistency, easy interpretation and a simple method for adding new events. Our proxy will only permit whitelisted events are sent to our analytics providers.
+
+For each interaction you are tracking, describe an object and an action related to it. For example: `form_submitted`, `form_started`, `form_downloaded`.
+
+Following the naming convention makes it easier for developers to understand existing events and give new events a relevant name that matches this style. New events must be approved before they are collected. 
+
+**The taxonomy**
+
+Some data points are **required**, most are *optional*. We use whitelisting to enforce the taxonomy and to ensure no personally identifiable information is sent to a third party. Over time we will grow the taxonomy to include new events.
+
+```
+{
+    "event_name":
+    [
+        "application_name": "foreldrepenger",
+        "team_name": "foreldrepenger"
+    ]
+}
+```

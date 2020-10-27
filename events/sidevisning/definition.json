@@ -2,6 +2,6 @@
   "name": "sidevisning",
   "standard": true,
   "properties": [
-    "status"
+    "url"
   ]
 }

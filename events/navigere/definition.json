@@ -1,8 +1,8 @@
 {
-  "name": "navigere",
-  "standard": true,
-  "properties": [
-    "url"
-  ]
-}
-
+    "name": "navigere",
+    "standard": true,
+    "properties": [
+        "url"
+    ]
+  }
+ 
