@@ -1,4 +1,3 @@
-const ts = require('typescript');
 const factory = require('typescript').factory;
 const printNode = require('./print-node');
 const rewriteName = require('../definitions/rewrite-name');
@@ -46,22 +45,22 @@ function createFunction(eventName) {
             factory.createTypeReferenceNode(
                 factory.createUnionTypeNode([
                   factory.createIdentifier(names.interfaceName),
-                  ts.createTypeLiteralNode([ts.createIndexSignature(
+                  factory.createTypeLiteralNode([factory.createIndexSignature(
                     undefined,
                     undefined,
-                    [ts.createParameter(
+                    [factory.createParameter(
                       undefined,
                       undefined,
                       undefined,
-                      ts.createIdentifier('key'),
+                      factory.createIdentifier('key'),
                       undefined,
-                      ts.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+                      factory.createKeywordTypeNode(factory.SyntaxKind.StringKeyword),
                       undefined
                     )],
-                    ts.createUnionTypeNode([
-                      ts.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-                      ts.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword),
-                      ts.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword)
+                    factory.createUnionTypeNode([
+                      factory.createKeywordTypeNode(factory.SyntaxKind.StringKeyword),
+                      factory.createKeywordTypeNode(factory.SyntaxKind.NumberKeyword),
+                      factory.createKeywordTypeNode(factory.SyntaxKind.BooleanKeyword)
                     ])
                   )])
                 ]),
