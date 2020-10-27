@@ -49,11 +49,11 @@ jobs:
         run: npm run bump-version
 
       - name: Push to back to git if Changed and on main branch
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: git push && git push --tags
 
       - name: Publish to NPM if Changed and on main branch
         uses: JS-DevTools/npm-publish@v1
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
