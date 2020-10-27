@@ -1,0 +1,59 @@
+name: Test and build taxonomy
+
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+      - ".gitignore"
+      - "LICENCE"
+      - "CODEOWNERS"
+    branches:
+
+jobs:
+  build:
+    name: Test and build taxonomy
+    runs-on: ubuntu-latest
+    if: github.event.pusher.name != 'github-actions'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setting up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - name: Installing Dependencies
+        run: npm ci
+
+      - name: Running Tests
+        run: npm run test
+
+      - name: Build Assets
+        run: npm run build
+
+      - name: Setting Github username and password
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: Bump Version if Changed
+        run: npm run bump-version
+
+      - name: Push to back to git if Changed and on main branch
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        run: git push && git push --tags
+
+      - name: Publish to NPM if Changed and on main branch
+        uses: JS-DevTools/npm-publish@v1
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
