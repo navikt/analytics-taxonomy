@@ -6,7 +6,7 @@ Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dat
 
 Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate. 
 
-Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens]('https://github.com/navikt/nav-analytics/blob/master/LICENSE').
+Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](https://github.com/navikt/analytics-taxonomy/blob/main/LICENSE).
 
 ### Kom igang
 
