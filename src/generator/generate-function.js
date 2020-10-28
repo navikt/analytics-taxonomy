@@ -44,7 +44,27 @@ function createFunction(eventName) {
             factory.createIdentifier('props'),
             undefined,
             factory.createTypeReferenceNode(
-                factory.createIdentifier(names.interfaceName),
+                factory.createUnionTypeNode([
+                  factory.createIdentifier(names.interfaceName),
+                  factory.createTypeLiteralNode([factory.createIndexSignature(
+                    undefined,
+                    undefined,
+                    [ts.createParameter(
+                      undefined,
+                      undefined,
+                      undefined,
+                      factory.createIdentifier('key'),
+                      undefined,
+                      factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+                      undefined
+                    )],
+                    factory.createUnionTypeNode([
+                      factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+                      factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword),
+                      factory.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword)
+                    ])
+                  )])
+                ]),
                 undefined,
             ),
             undefined,
