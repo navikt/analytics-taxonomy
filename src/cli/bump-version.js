@@ -7,6 +7,7 @@ const getChangeFromCommitMessage = require('../versioning/get-change-from-commit
 const getPubPackageData = require('../versioning/get-published-package-data');
 const setVersion = require('../versioning/set-version');
 const status = require('../versioning/status');
+
 const bumpVersion = async (commitMessage) => {
   const pubPackData = await getPubPackageData('dist/signature.txt');
   let change = getChangeFromCommitMessage(commitMessage);
