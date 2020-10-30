@@ -38,12 +38,14 @@
     "@types/amplitude-js": "6.0.0",
     "@types/npm": "latest",
     "@types/typescript": "latest",
+    "axios": "^0.21.0",
     "camelcase": "^6.1.0",
+    "dotenv": "^8.2.0",
     "glob": "^7.1.6",
     "global-npm": "^0.4.1",
     "jest": "^26.5.3",
-    "tar": "^6.0.5",
     "semver": "^7.3.2",
+    "tar": "^6.0.5",
     "typescript": "latest"
   }
 }
