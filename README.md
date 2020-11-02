@@ -37,3 +37,15 @@ Bruk camel case i attributter, for eksempel:
 **Påkrevd og valgfrihet**
 
 Noen datapunkter er påkrevd men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
+
+### Utvikling
+
+#### Versjonering
+Hvis du gjør endringer på eventer vil github action gå inn å sjekke om endringen 
+skal være en PATCH eller en MINOR(breaking change) og automatisk bumpe versjon og
+kjøre en oppdatering til NPM.
+
+Hvis du gjør en endring på andre ting. Altså utenfor event-folderen, så kan koden 
+bumpes med å skrive `[MAJOR]`, `[MINOR]` eller `[PATCH]` i commit-meldingen.
+
+
