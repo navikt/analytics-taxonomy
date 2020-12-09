@@ -4,7 +4,13 @@ NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For �
 
 Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi. Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://nav.no.
 
-Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate. 
+### Formål
+
+Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate.
+
+Et annet aspekt er at Amplitude begrenser<sup>1</sup> et *prosjekt* til maks 2.000 eventnavn og 2.000 attributtnavn. Merk at attributt*verdier* ikke har en slik begrensning. Denne taksonomien bidrar derfor også til at alle bruker Amplitude på en god måte, uavhengig av om man kjenner til Amplitude sine særegenheter.
+
+> <sup>1</sup> Overskrider man grensene lagres fortsatt dataen, men den er kun tilgjengelig ved eksport.
 
 Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](https://github.com/navikt/analytics-taxonomy/blob/main/LICENSE).
 
@@ -36,7 +42,7 @@ Bruk camel case i attributter, for eksempel:
 
 **Påkrevd og valgfrihet**
 
-Noen datapunkter er påkrevd men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
+Noen attributter er påkrevd, men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
 
 ### Utvikling
 
