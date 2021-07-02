@@ -15,7 +15,7 @@ Verktøyene vi bruker har også tekniske begrensninger som vi må forholde oss t
 
 > <sup>1</sup> Overskrider man grensene lagres fortsatt dataen, men den er kun tilgjengelig ved eksport.
 
-Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](/LICENSE).
+Vi ønsker at produkt-team hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](/LICENSE).
 
 **Hvordan hånheves taksonomien?**
 
