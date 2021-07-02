@@ -3,6 +3,7 @@
     "standard": true,
     "properties": [
       "type",
-      "tema"
+      "tema",
+      "tittel"
     ]
   }  
