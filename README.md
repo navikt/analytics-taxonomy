@@ -1,26 +1,43 @@
-# Analytics Taxonomy for NAV applikasjoner
+# **Analytics Taxonomy for NAV applikasjoner**
 
-NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For å forsikre at vi får gode data med høye kvalitet og konsistente navnkonvensjonser så skal vi bruke en felles taksonomi for analytics. Ved å følge vår Mesh-arkitektur så skal alle events videresendes til Kafka.
+- [**Analytics Taxonomy for NAV applikasjoner**](#analytics-taxonomy-for-nav-applikasjoner)
+  - [**Hvordan kan jeg bruke taksonomien?**](#hvordan-kan-jeg-bruke-taksonomien)
+  - [**Hvordan kan jeg bidra til taksonomien?**](#hvordan-kan-jeg-bidra-til-taksonomien)
+    - [**Språk og casing**](#språk-og-casing)
+    - [**Påkrevd og valgfrihet**](#påkrevd-og-valgfrihet)
+  - [**Versjonering**](#versjonering)
 
-Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi. Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://nav.no.
+NAV skal lage gode tjenester for innbyggere. Derfor trenger vi å vite hvordan de brukes. For at det skal være enkelt for team å forstå bruken av tjenestene de lager og forstå bruksmønster på tvers av tjenester så behøver vi et språk for målinger. Det oppnår vi med en navnkonvensjon, også kalt en taksonomi. Denne skal brukes i webstatistikken vår som samles i Amplitude.
 
-### Formål
+For at taksonomien skal lykkes så er vi avhengig av at team bidrar med forslag og i diskusjoner om hva taksonomien bør inneholde.
 
-Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate.
-
-Et annet aspekt er at Amplitude begrenser<sup>1</sup> et *prosjekt* til maks 2.000 eventnavn og 2.000 attributtnavn. Merk at attributt*verdier* ikke har en slik begrensning. Denne taksonomien bidrar derfor også til at alle bruker Amplitude på en god måte, uavhengig av om man kjenner til Amplitude sine særegenheter.
+Verktøyene vi bruker har også tekniske begrensninger som vi må forholde oss til. Amplitude kan vise opptil 2.000 eventnavn per prosjekt og 2.000 attributtnavn. Merk at attributt*verdier* ikke har en slik begrensningen. Taksonomien bidrar derfor også til at alle får utbytte av Amplitude uten at vi går over disse tekniske begrensningene. 
 
 > <sup>1</sup> Overskrider man grensene lagres fortsatt dataen, men den er kun tilgjengelig ved eksport.
 
-Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](https://github.com/navikt/analytics-taxonomy/blob/main/LICENSE).
+Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](/LICENSE).
 
-### Kom igang
+**Hvordan hånheves taksonomien?**
 
-Før du sender oss et forslag til taksonomien så bør du vurdere forslaget og verdien det tilfører. Hvilket problem løser det? Lar det team forstå bruksmønster, måle om sluttbrukere er selvbetjent eller noe annet?
+Tanken er at taksonomien skal fungere i vår [amplitude-proxy|https://github.com/navikt/amplitude-proxy], og merke alle events som sendes inn til Amplitude slik at vi kan ha oversikt på om taksonomien blir brukt, og unngå at vi nærmer oss maksgrensen på unike events per prosjekt i Amplitude.
 
-Ved å svare på dette spørsmålet så blir det enklere å planlegge hva du bør måle og hvordan det bør måles. Taksonomien tar kun for seg digital analyse men dere kan også ha behov for data fra spørreundersøkelser og brukertesting. 
+Fra taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi. Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://www.nav.no.
 
-**Språk og casing**
+## **Hvordan kan jeg bruke taksonomien?**
+
+Utviklere kan bruke taksonomien som et kodeverktøy i tillegg til å være oppslagsverk. Vi lager en pakke som du kan importere i frontend-prosjekter som gir deg innebygd dokumentasjon som beskriver event-typer og hva de passer til å måle på våre nettsider.
+
+## **Hvordan kan jeg bidra til taksonomien?**
+
+Start en tråd i vår Slack-kanal for [#Amplitude|https://nav-it.slack.com/archives/CMK1SCBP1]
+
+Vi tar gjerne imot både forslag å legge til nye ting og å endre eksisterende ting i taksonomien.
+
+Hvis du foreslår en ny event-type, fortell oss hva du mener det hjelper deg og ditt team å måle. 
+
+Foreslå gjerne attributter som kan brukes til å filtrere på dataene også, slik at ditt team kan gruppere og filtrere på dataene som samles inn. 
+
+### **Språk og casing**
 
 Bruk naturlig språk for å beskrive en event. Det burde kunne brukes i en setning og beskrive en handling som brukeren gjorde.
 
@@ -36,22 +53,17 @@ Andre eksempler
 * `skjema fullført`
 
 
-Bruk camel case i attributter, for eksempel: 
-
-`pagePath` for stien i en URL
-
-**Påkrevd og valgfrihet**
+### **Påkrevd og valgfrihet**
 
 Noen attributter er påkrevd, men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
 
-### Utvikling
+For å forstå dette nærmere så ta en titt på noen eksempler i taksonomien som [sidevisning](events/sidevisning/README.md) og [navigere](/events/navigere/README.md).
 
-#### Versjonering
-Hvis du gjør endringer på eventer vil github action gå inn å sjekke om endringen 
+## **Versjonering**
+
+Når repoet oppdateres så vil en github action gå inn å sjekke om endringen 
 skal være en PATCH eller en MINOR(breaking change) og automatisk bumpe versjon og
 kjøre en oppdatering til NPM.
 
-Hvis du gjør en endring på andre ting. Altså utenfor event-folderen, så kan koden 
+Hvis du gjør en endring på andre ting, altså utenfor event-mappen, så kan koden 
 bumpes med å skrive `[MAJOR]`, `[MINOR]` eller `[PATCH]` i commit-meldingen.
-
-
