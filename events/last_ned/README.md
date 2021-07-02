@@ -5,4 +5,4 @@ En innbygger laster ned noe. Et dokument fra sin innboks for eksempel, eller en 
 | Felt | | Type | Beskrivelse |
 | :--- | :--- | :--- | :--- |
 | type | påkrevd | string | hva slags fil laster man ned? Saksdokument, statistikk |
-| tema | påkrevd | integer | hva handler vedlegget om? Dagpenger, Foreldrepenger |
+| tema | påkrevd | string | hva handler vedlegget om? Dagpenger, Foreldrepenger |
