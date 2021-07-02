@@ -1,6 +1,6 @@
 {
   "name": "@navikt/analytics-taxonomy",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Analytics taxonomy for NAV applications",
   "main": "dist/cjs/index.js",
   "typings": "dist/cjs/index.d.ts",
