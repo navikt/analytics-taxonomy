@@ -1,0 +1,8 @@
+{
+    "name": "last ned",
+    "standard": true,
+    "properties": [
+      "type",
+      "tema"
+    ]
+  }  
