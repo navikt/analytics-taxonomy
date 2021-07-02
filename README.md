@@ -29,7 +29,7 @@ Utviklere kan bruke taksonomien som et kodeverktøy i tillegg til å være oppsl
 
 ## **Hvordan kan jeg bidra til taksonomien?**
 
-Start en tråd i vår Slack-kanal for [#Amplitude|https://nav-it.slack.com/archives/CMK1SCBP1]
+Start en tråd i vår Slack-kanal for [#Amplitude](https://nav-it.slack.com/archives/CMK1SCBP1)
 
 Vi tar gjerne imot både forslag å legge til nye ting og å endre eksisterende ting i taksonomien.
 
