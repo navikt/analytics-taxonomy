@@ -1,0 +1,8 @@
+{
+    "name": "alert vist",
+    "standard": true,
+    "properties": [
+      "variant",
+      "tekst"
+    ]
+  }
