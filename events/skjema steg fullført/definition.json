@@ -1,9 +1,9 @@
 {
-    "name": "skjemasteg fullført",
+    "name": "skjema steg fullført",
     "standard": true,
     "properties": [
       "skjemanavn",
       "skjemaId",
       "steg"
     ]
-  }  
+  }
