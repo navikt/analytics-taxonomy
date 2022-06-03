@@ -1,12 +1,16 @@
-# Analytics Taxonomy for NAV applikasjoner
+# Motivasjon for taksonomi i NAVs applikasjoner
 
 NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For å forsikre at vi får gode data med høye kvalitet og konsistente navnkonvensjonser så skal vi bruke en felles taksonomi for analytics. Ved å følge vår Mesh-arkitektur så skal alle events videresendes til Kafka.
 
-Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi. Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://nav.no.
+Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi.
 
-### Formål
+Taksonomien følger målet om innebygd personvern og krav i loven som Personopplysningsloven og vår personvernerklæring på https://nav.no.
 
-Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel konverteringsrate.
+## Formål
+
+Navnkonvensjonen følger vårt [design-system](https://aksel.nav.no/designsystem) for å måle bruk av komponenter. 
+
+Formålet med navnkonvensjonen er å sikre at våre data er sammenlignbare, at team kan gjenbruke kode blant sine tjenester og at vi kan lett implementere metrikker for å måle kvalitet i løsningen. For eksempel bruksrate på hvordan innbyggere navigerer og tilpasser innhold på nettstedet.
 
 Et annet aspekt er at Amplitude begrenser<sup>1</sup> et *prosjekt* til maks 2.000 eventnavn og 2.000 attributtnavn. Merk at attributt*verdier* ikke har en slik begrensning. Denne taksonomien bidrar derfor også til at alle bruker Amplitude på en god måte, uavhengig av om man kjenner til Amplitude sine særegenheter.
 
@@ -14,7 +18,7 @@ Et annet aspekt er at Amplitude begrenser<sup>1</sup> et *prosjekt* til maks 2.0
 
 Vi ønsker at utviklere hos NAV leser og bidrar til taksonomien ved å lage en Pull Request. Alle kan bruke dette repoet i henhold til vår [lisens](https://github.com/navikt/analytics-taxonomy/blob/main/LICENSE).
 
-### Kom igang
+## Kom igang
 
 Før du sender oss et forslag til taksonomien så bør du vurdere forslaget og verdien det tilfører. Hvilket problem løser det? Lar det team forstå bruksmønster, måle om sluttbrukere er selvbetjent eller noe annet?
 
@@ -27,6 +31,12 @@ Bruk naturlig språk for å beskrive en event. Det burde kunne brukes i en setni
 For eksempel "**Skjemaet ble åpnet** av bruker".
 
 Andre eksempler 
+
+* `accordion åpnet`
+* `accordion lukket`
+* `modal åpnet`
+* `modal lukket`
+
 * `skjema åpnet`
 * `skjema startet`
 * `skjemaspørsmål besvart`
@@ -44,9 +54,9 @@ Bruk camel case i attributter, for eksempel:
 
 Noen attributter er påkrevd, men mesteparten er valgfrie. Vi bruker allowlist for å håndheve taksonomien og for å forsikre at ingen personopplysninger sendes til tredjeparten Amplitude. Over tid så vil taksonomien vokse og støtte flere events som bidrar til allow listen.
 
-### Utvikling
+## Utvikling
 
-#### Versjonering
+### Versjonering
 Hvis du gjør endringer på eventer vil github action gå inn å sjekke om endringen 
 skal være en PATCH eller en MINOR(breaking change) og automatisk bumpe versjon og
 kjøre en oppdatering til NPM.
