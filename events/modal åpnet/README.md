@@ -4,4 +4,4 @@ En bruker åpnet en modal
 
 | Felt | | Type | Beskrivelse |
 | :--- | :--- | :--- | :--- |
-| lenketekst | påkrevd | string | lenketekst på modalen som åpnes |
+| tekst | påkrevd | string | tekst på modalen som åpnes |
