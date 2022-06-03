@@ -32,18 +32,18 @@ For eksempel "**Skjemaet ble åpnet** av bruker".
 
 Andre eksempler 
 
-* `accordion åpnet`
-* `accordion lukket`
-* `modal åpnet`
-* `modal lukket`
+* [accordion åpnet](events/accordion%20%C3%A5pnet/README.md)
+* [accordion lukket](events/accordion%20lukket/README.md)
+* [modal åpnet](events/modal%20%C3%A5pnet/README.md)
+* [modal lukket](events/modal%20lukket/README.md)
 
-* `skjema åpnet`
-* `skjema startet`
-* `skjemaspørsmål besvart`
-* `skjemasteg fullført`
-* `skjemavalidering feilet`
-* `skjemainnsending feilet`
-* `skjema fullført`
+* [skjema åpnet](events/skjema%20%C3%A5pnet/README.md)
+* [skjema startet](events/skjema%20startet/README.md)
+* [skjemaspørsmål besvart](events/skjema%20sp%C3%B8rsm%C3%A5l%20besvart/README.md)
+* [skjemasteg fullført](events/skjema%20steg%20fullf%C3%B8rt/README.md)
+* [skjemavalidering feilet](events/skjema%20validering%20feilet/README.md)
+* [skjemainnsending feilet](events/skjema%20innsending%20feilet/README.md)
+* [skjema fullført](events/skjema%20fullf%C3%B8rt/README.md)
 
 
 Bruk camel case i attributter, for eksempel: 
