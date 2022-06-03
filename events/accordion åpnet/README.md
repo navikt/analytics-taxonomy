@@ -4,4 +4,4 @@ En bruker åpnet en accordion
 
 | Felt | | Type | Beskrivelse |
 | :--- | :--- | :--- | :--- |
-| tittel | påkrevd | string | tittel på accordion som åpnes |
+| tekst | påkrevd | string | tekst på accordion som åpnes |

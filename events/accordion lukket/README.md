@@ -4,4 +4,4 @@ En bruker lukket en accordion
 
 | Felt | | Type | Beskrivelse |
 | :--- | :--- | :--- | :--- |
-| tittel | påkrevd | string | tittel på accordion som lukkes |
+| tekst | påkrevd | string | tekst på accordion som lukkes |
