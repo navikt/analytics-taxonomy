@@ -1,0 +1,9 @@
+{
+    "name": "søk",
+    "standard": true,
+    "properties": [
+      "destinasjon",
+      "søkestreng",
+      "komponent"
+    ]
+  }  
