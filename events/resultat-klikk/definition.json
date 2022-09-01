@@ -1,0 +1,10 @@
+{
+    "name": "resultat-klikk",
+    "standard": true,
+    "properties": [
+      "destinasjon",
+      "søkeord",
+      "treffnr",
+      "komponent"
+    ]
+  }  
