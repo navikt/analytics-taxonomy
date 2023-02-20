@@ -1,6 +1,6 @@
 # Motivasjon for taksonomi i NAVs applikasjoner
 
-NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For å forsikre at vi får gode data med høye kvalitet og konsistente navnkonvensjonser så skal vi bruke en felles taksonomi for analytics. Ved å følge vår Mesh-arkitektur så skal alle events videresendes til Kafka.
+NAV skal lage gode tjenester. Derfor trenger vi å vite hvordan de brukes. For å forsikre at vi får gode data med høye kvalitet og konsistente navnkonvensjonser så skal vi bruke en felles taksonomi for analytics.
 
 Fra denne taksonomien lages det JSON schema. Disse brukes til å validere at dataene som samles inn via nettlesere til brukere er i henhold til vår taksonomi.
 
