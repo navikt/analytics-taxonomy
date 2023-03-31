@@ -7,5 +7,5 @@ Kan brukes når et skjema består av flere steg, for eksempel mange spørsmål.
 | Felt | | Type | Beskrivelse |
 | :--- | :--- | :--- | :--- |
 | skjemanavn | påkrevd | string | navn på skjema |
-| skjemaId | påkrevd | integer | ID på skjemaet |
+| skjemaId | påkrevd | string | ID på skjemaet |
 | steg | påkrevd | integer | steg i skjemautfylling |
